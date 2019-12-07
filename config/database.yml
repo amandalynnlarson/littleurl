@@ -8,6 +8,10 @@ default: &default
   adapter: sqlite3
   pool: 5
   timeout: 5000
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  username: <%= ENV.fetch('MYSQL_USER') %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') %>
+  database: <%= ENV.fetch('MYSQL_DB') %>
 
 development:
   <<: *default
