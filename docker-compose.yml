@@ -11,8 +11,21 @@ services:
     volumes:
       - .:/usr/src/app
     env_file:
-      - .env/development/database
       - .env/development/web
+      - .env/development/database
+    environment:
+      - EBPACKER_DEV_SERVER_HOST=webpack_dev_server
+
+  webpack_dev_server:
+      build: .
+      command: ./bin/webpack-dev-server
+      ports:
+        - "3035:3035"
+      env_file:
+        - .env/development/web
+        - .env/development/database
+      environment:
+        -  WEBPACKER_DEV_SERVER_HOST=0.0.0.0
 
   redis:
     image: redis
@@ -21,3 +34,8 @@ services:
     image: mysql:5.7
     env_file:
       - .env/development/database
+    volumes:
+      - db_data:/var/lib/mymysql/data
+
+volumes:
+  db_data:
