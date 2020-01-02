@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shorten Urls</h1>
+<table>
+  <tr>
+    <th>Original Url</th>
+    <th>Short Url</th>
+  </tr>
+
+<% @shorten_urls.each do |shorten_url| %>
+  <tr>
+    <td><%= shorten_url.original_url %></td>
+    <td><%= shorten_url.short_url %></td>
+    <td><%= link_to 'Show', shorten_url %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Shorten Url', new_shorten_url_path %>
