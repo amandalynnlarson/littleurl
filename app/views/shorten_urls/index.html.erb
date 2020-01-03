@@ -12,6 +12,8 @@
     <td><%= shorten_url.original_url %></td>
     <td><%= shorten_url.short_url %></td>
     <td><%= link_to 'Show', shorten_url %></td>
+    <td><%= link_to 'Edit', edit_shorten_url_path(shorten_url) %></td>
+    <td><%= link_to 'Destroy', shorten_url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

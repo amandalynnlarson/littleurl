@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :shorten_urls do
+    get 'shorten_urls' => 'shorten_urls#new'
+  end
 end
